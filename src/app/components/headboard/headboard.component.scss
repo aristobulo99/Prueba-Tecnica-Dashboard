@@ -1,0 +1,49 @@
+.header-style{
+  width: 400px;
+  height: 80px;
+  padding: 0px 15px;
+  background: #970000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logout-button{
+  background: #970000;
+  border: solid 1px #970000;
+
+  &:hover {
+    background-color: #970000;
+  }
+
+  &:active {
+    background-color: #490000;
+  }
+}
+
+.icon-closing{
+  width: 40px;
+  height: 40px;
+  background: #970000;
+}
+
+@media screen and (min-width: 431px) {
+  .header-style{
+    width: 800px;
+  }
+}
+
+@media screen and (min-width: 821px) {
+  .header-style{
+    width: 97.6%;
+    height: 40px;
+  }
+
+  .icon-closing{
+    width: 20px;
+    height: 20px;
+    background: #970000;
+  }
+
+}
