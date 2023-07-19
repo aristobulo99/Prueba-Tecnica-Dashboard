@@ -1,17 +1,19 @@
 <section class="login-background">
 
-  <section class="form-box">
+  <section class="form-box" [formGroup]="formGroup">
     <p class="qualification">Login</p>
 
     <br>
     <br>
-
     <div class="queued-content">
 
       <img class="icon-size" src="../../../assets/icon/person_black_24dp 1.svg" alt="user representation">
-      <input class="user-input" type="text" placeholder="Usuario">
+      <input class="user-input" type="text" placeholder="Usuario" formControlName="userName">
 
     </div>
+    <ng-container *ngIf="getUserName?.hasError('required') && getUserName?.touched">
+      <p class="subtext-add">Campo obligatorio</p>
+    </ng-container>
 
     <br>
     <br>
@@ -19,16 +21,19 @@
     <div class="queued-content">
 
       <img class="icon-size" src="../../../assets/icon/lock_black_24dp 1.svg" alt="password representation">
-      <input class="user-input" type="password" placeholder="Contraseña">
+      <input class="user-input" type="password" placeholder="Contraseña" formControlName="password">
 
     </div>
+    <ng-container *ngIf="getPassword?.hasError('required') && getPassword?.touched">
+      <p class="subtext-add">Campo obligatorio</p>
+    </ng-container>
+
 
     <br>
     <br>
-    <br>
 
 
-    <button class="generic-button">Iniciar Sesión</button>
+    <button class="generic-button" [disabled]="formGroup.invalid" (click)="LogIn()">Iniciar Sesión</button>
   </section>
 
 </section>
