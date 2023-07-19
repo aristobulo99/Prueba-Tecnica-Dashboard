@@ -114,6 +114,23 @@ table {
   }
 }
 
+.generic-input{
+  width: 357px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #970000;
+  background: #FFF;
+  color: #A3A1A1;
+  font-family: Patua One;
+  font-size: 24px;
+}
+
+.text-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 @media screen and (min-width: 431px) {
 
   .login-background{
@@ -143,6 +160,10 @@ table {
     height: 721px
   }
 
+  .form-box{
+    width: 430px;
+    height: 330px;
+  }
 
   .subtext{
     font-size: 15px;
@@ -157,7 +178,11 @@ table {
     height: 680px
   }
 
-
+  .generic-button{
+    width: 344px;
+    height: 44px;
+    font-size: 20px;
+  }
 
 }
 
