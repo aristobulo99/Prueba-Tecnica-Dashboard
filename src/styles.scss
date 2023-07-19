@@ -92,7 +92,7 @@ table {
 .subtext-add{
   color: #970000;
   font-family: 'Patua One', cursive;
-  font-size: 30px;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -138,7 +138,7 @@ table {
 
 
 .generic-input{
-  width: 357px;
+  width: 85%;
   height: 35px;
   border-radius: 5px;
   border: 1px solid #970000;
@@ -178,9 +178,24 @@ table {
     height: 400px;
   }
 
+  .subtext{
+    font-size: 24px;
+  }
+
+  .subtext-add{
+    font-size: 24px;
+  }
+
   .generic-button{
     width: 500px;
   }
+
+  .card-container{
+    width: 365px;
+  }
+
+
+
 }
 
 @media screen  and (min-width: 821px) {
@@ -193,6 +208,11 @@ table {
   .form-box{
     width: 430px;
     height: 330px;
+  }
+
+  .card-container{
+    width: 308px;
+    min-height: 281px;
   }
 
   .subtext{
@@ -212,6 +232,12 @@ table {
     width: 344px;
     height: 44px;
     font-size: 20px;
+  }
+
+  .generic-input{
+    width: 267px;
+    height: 30px;
+    font-size: 15px;
   }
 
 }

@@ -3,9 +3,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.queued-content{
+.cumulative-content{
   display: flex;
   flex-direction: column;
+}
+
+
+@media screen and (min-width: 431px) {
+
+  .cumulative-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+}
+
+@media screen and (min-width: 821px) {
+
+  .default-background{
+
+    height: 100%;
+  }
+
+  .accumulated-and-affected-content{
+    flex-direction: row;
+    margin: 0px 100px 0px 0px;
+  }
+
+  .cumulative-content{
+    width: 60%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+
 }
