@@ -1,12 +1,16 @@
 
-<section class="function-area">
+<section class="function-area"
+         (dragover)="onDragOver($event)"
+         (dragleave)="onDragLeave($event)"
+         (drop)="onDrop($event)"
+>
 
   <p class="subtext-add">Arrastra y suelta el archivo .csv</p>
   <p class="subtext-add">O</p>
-  <button class="file-selection-and-upload">
+  <button class="file-selection-and-upload" (click)="fileUploadButtonEvent()">
     <img src="../../../assets/icon/upload_file_black_24dp 1.svg" alt="file upload rendering">
     Seleccione el archivo
   </button>
-  <input type="file" id="input-file" hidden accept=".csv">
+  <input type="file" #inputfile hidden accept=".csv" (change)="prueba($event)">
 
 </section>

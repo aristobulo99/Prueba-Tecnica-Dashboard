@@ -9,19 +9,25 @@
   align-items: center;
 }
 
+.drag-over{
+  background: #d69090;
+
+
+}
+
 .file-selection-and-upload{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #FFEDED;
-  border: solid 1px #FFEDED;
+  background: #ffeded00;
+  border: solid 1px #ffeded00;
   color: #970000;
   font-family: 'Patua One', cursive;
   font-size: 30px;
   text-align: center;
 
   &:hover {
-    background-color: #FFEDED;
+    background-color: #ffeded00;
   }
 
   &:active {
@@ -36,6 +42,7 @@
     width: 612px;
     height: 553px;
   }
+
 }
 
 @media screen  and (min-width: 821px) {
