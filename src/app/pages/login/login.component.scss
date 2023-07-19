@@ -1,0 +1,39 @@
+
+.queued-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350px;
+  height: 60px;
+  border: solid 1px #970000;
+  border-radius: 15px;
+  background: #FFFF;
+}
+
+.icon-size{
+  width: 40px;
+  height: 40px;
+}
+
+.user-input{
+  width: 84%;
+  border: none;
+  outline: none;
+  padding: 0px 0px 0px 20px;
+  color: #474747;
+  font-family: Patua One;
+  font-size: 30px;
+}
+
+.user-input::placeholder{
+  color: #A3A1A1;
+}
+
+@media screen and (min-width: 431px) {
+
+  .queued-content{
+    width: 500px;
+  }
+
+}
+
