@@ -22,29 +22,24 @@ export class DragAndDropComponent {
     this.fileButton.nativeElement.click();
   }
 
-  public cumulativeOfDates(dateData: any[], objectData: DataCovid19USA){
+  public cumulativeOfDates(dateData: {[key: string]: number}, objectData: DataCovid19USA){
 
     for(let datesOnly in objectData){
       if(new Date(datesOnly).toString() != "Invalid Date"){
-        dateData[0][datesOnly] += objectData[datesOnly];
+        dateData[datesOnly] += objectData[datesOnly];
       }
     }
     return dateData;
   }
 
-  public processingDates(state: string, newObject: {[key:string]: NewDataCovid19USA}){
+  public processingDates(objectData: DataCovid19USA){
     let newDates: {[key: string]: number} = {};
-    newObject[state].newData.forEach(
-      objectData => {
-        for(let datesOnly in objectData){
-          if(new Date(datesOnly).toString() != "Invalid Date"){
-            newDates[datesOnly] = objectData[datesOnly];
-          }
-        }
-        return newDates;
+    for(let datesOnly in objectData){
+      if(new Date(datesOnly).toString() != "Invalid Date"){
+        newDates[datesOnly] = objectData[datesOnly]
       }
-    );
-    return newDates
+    }
+    return newDates;
   }
 
   public processingInformation(dataCovidUSA: DataCovid19USA[]){
@@ -54,7 +49,6 @@ export class DragAndDropComponent {
 
         if(newObject[objectData.Province_State]){
           newObject[objectData.Province_State].newData = this.cumulativeOfDates(newObject[objectData.Province_State].newData, objectData);
-          //newObject[objectData.Province_State].newData.push(objectData)
           newObject[objectData.Province_State] = {
             Population: newObject[objectData.Province_State]['Population'] + objectData.Population,
             newData: newObject[objectData.Province_State].newData
@@ -62,13 +56,14 @@ export class DragAndDropComponent {
         }else{
           newObject[objectData.Province_State] = {
             Population: objectData.Population,
-            newData: [objectData]
+            newData: this.processingDates(objectData)
           };
-          newObject[objectData.Province_State].newData = [this.processingDates(objectData.Province_State,newObject)];
+
 
         }
       }
     );
+
     return newObject;
 
   }
@@ -77,6 +72,7 @@ export class DragAndDropComponent {
     workBook.SheetNames.forEach(
       sheet => {
         const data: DataCovid19USA[] = XLSX.utils.sheet_to_json(workBook.Sheets[sheet]);
+
         this.covidTimeSeriesData.postData(this.processingInformation(data)).subscribe(
           (respuesta) => {
             console.log(respuesta)

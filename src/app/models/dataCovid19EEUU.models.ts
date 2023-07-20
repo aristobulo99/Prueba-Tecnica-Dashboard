@@ -15,5 +15,5 @@ export interface DataCovid19USA{
 }
 
 export interface NewDataCovid19USA extends Omit<DataCovid19USA, 'UID'|'iso2'|'iso3'|'code3'|'FIPS'|'Admin2'|'Province_State'|'Country_Region'|'Combined_Key'>{
-  newData: any[]
+  newData: any
 }
