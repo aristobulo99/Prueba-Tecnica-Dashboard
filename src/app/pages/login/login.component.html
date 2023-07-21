@@ -6,28 +6,32 @@
 
     <br>
     <br>
-    <div class="queued-content">
+    <div class="input-structure-and-rectivity">
+      <div class="queued-content">
 
-      <img class="icon-size" src="../../../assets/icon/person_black_24dp 1.svg" alt="user representation">
-      <input class="user-input" type="text" placeholder="Usuario" formControlName="userName">
+        <img class="icon-size" src="../../../assets/icon/person_black_24dp 1.svg" alt="user representation">
+        <input class="user-input" type="text" placeholder="Usuario" formControlName="userName">
 
+      </div>
+      <ng-container *ngIf="getUserName?.hasError('required') && getUserName?.touched">
+        <p class="subtext-add" style="color: #ff0000;">Campo obligatorio</p>
+      </ng-container>
     </div>
-    <ng-container *ngIf="getUserName?.hasError('required') && getUserName?.touched">
-      <p class="subtext-add">Campo obligatorio</p>
-    </ng-container>
 
     <br>
     <br>
 
-    <div class="queued-content">
+    <div class="input-structure-and-rectivity">
+      <div class="queued-content">
 
-      <img class="icon-size" src="../../../assets/icon/lock_black_24dp 1.svg" alt="password representation">
-      <input class="user-input" type="password" placeholder="Contraseña" formControlName="password">
+        <img class="icon-size" src="../../../assets/icon/lock_black_24dp 1.svg" alt="password representation">
+        <input class="user-input" type="password" placeholder="Contraseña" formControlName="password">
 
+      </div>
+      <ng-container *ngIf="getPassword?.hasError('required') && getPassword?.touched">
+        <p class="subtext-add" style="color: #ff0000;">Campo obligatorio</p>
+      </ng-container>
     </div>
-    <ng-container *ngIf="getPassword?.hasError('required') && getPassword?.touched">
-      <p class="subtext-add">Campo obligatorio</p>
-    </ng-container>
 
 
     <br>
