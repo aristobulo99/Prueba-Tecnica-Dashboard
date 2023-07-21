@@ -80,7 +80,7 @@ export class DragAndDropComponent {
         const data: DataCovid19USA[] = XLSX.utils.sheet_to_json(workBook.Sheets[sheet]);
 
         this.covidTimeSeriesData.postData(this.processingInformation(data)).subscribe(
-          (respuesta) => {
+          () => {
             localStorage.setItem('fileCSV', 'existData');
             this.router.navigate(['dashboard']);
           }
@@ -93,7 +93,7 @@ export class DragAndDropComponent {
   public readCsvFile(){
     this.uploadFileEvent.uploadingFile.emit();
     const readFile = new FileReader();
-    let objetoDeprueba: {[key: string]:any[]} = {"data":[]}
+
     readFile.readAsBinaryString(this.fileCSV);
     readFile.onloadend = (event) => {
       let binaryData = event.target?.result;

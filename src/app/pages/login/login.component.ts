@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
   }
 
   public LogIn(){
-    console.log(this.getUserName?.value, this.getPassword?.value)
+
     this.userServices.requestUsers().subscribe(
       (result) => {
         result.forEach(
