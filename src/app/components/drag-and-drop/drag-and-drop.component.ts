@@ -1,6 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataCovid19USA, NewDataCovid19USA } from 'src/app/models/dataCovid19EEUU.models';
 import { Covid19TimeSeriesDataService } from 'src/app/services/covid19-time-series-data.service';
+import { EventEmitService } from 'src/app/services/event-emit.service';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -12,11 +14,15 @@ export class DragAndDropComponent {
 
   @ViewChild('inputfile',{static: true}) fileButton!: ElementRef
   private fileCSV: any;
-  private convertToJson!: string;
+
+
 
   constructor(
-    private covidTimeSeriesData: Covid19TimeSeriesDataService
-  ){}
+    private covidTimeSeriesData: Covid19TimeSeriesDataService,
+    private uploadFileEvent: EventEmitService,
+    private router: Router
+  ){
+  }
 
   public fileUploadButtonEvent(){
     this.fileButton.nativeElement.click();
@@ -75,7 +81,8 @@ export class DragAndDropComponent {
 
         this.covidTimeSeriesData.postData(this.processingInformation(data)).subscribe(
           (respuesta) => {
-            console.log(respuesta)
+            localStorage.setItem('fileCSV', 'existData');
+            this.router.navigate(['dashboard']);
           }
         );
       }
@@ -84,6 +91,7 @@ export class DragAndDropComponent {
 
 
   public readCsvFile(){
+    this.uploadFileEvent.uploadingFile.emit();
     const readFile = new FileReader();
     let objetoDeprueba: {[key: string]:any[]} = {"data":[]}
     readFile.readAsBinaryString(this.fileCSV);

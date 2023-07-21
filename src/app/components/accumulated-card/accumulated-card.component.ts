@@ -36,7 +36,9 @@ export class AccumulatedCardComponent implements OnInit{
     this.nameState = '';
     this.covid19TimeSriesDataServices.getData().subscribe(
       (result) => {
-
+        if(result.length == 0){
+          localStorage.removeItem('fileCSV')
+        }
         result.forEach(
           objectData => {
 

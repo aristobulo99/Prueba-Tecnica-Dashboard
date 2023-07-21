@@ -1,6 +1,18 @@
 <app-headboard [headerTitle]="'Bienvenido'"></app-headboard>
 <section class="default-background">
 
+  <dialog
+  [ngClass]="{
+    'uploading-file-none': dialogControl,
+    'uploading-file': !dialogControl
+  }">
+    <div class="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </dialog>
+
   <app-drag-and-drop></app-drag-and-drop>
 
 </section>

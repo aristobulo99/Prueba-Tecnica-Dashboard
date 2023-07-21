@@ -1,4 +1,74 @@
-.a{
+.uploading-file-none{
   display: none;
+}
+
+.uploading-file{
+  width: 394px;
+  height: 462px;
+  background: #d69090;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #d69090;
+  border-radius: 30px;
+  margin: 0px 4%;
+  padding: unset;
+}
+
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  height: 50px;
+}
+
+.loader div {
+  width: 12px;
+  background: #890000;
+  animation: loader 1.8s linear infinite;
+
+}
+
+@keyframes loader {
+  0% {
+      height: 12px;
+  }
+  25% {
+      height: 50px;
+  }
+  50% {
+      height: 10px;
+  }
+  75% {
+      height: 25px;
+  }
+  100% {
+      height: 12px;
+  }
+}
+
+.loader div:nth-child(2) {
+  animation-delay: -0.25s;
+}
+
+
+@media screen and (min-width: 431px) {
+  .uploading-file{
+    width: 612px;
+    height: 554px;
+    margin: 0px 13%;
+  }
+}
+
+@media screen and (min-width: 831px) {
+  .uploading-file{
+    width: 100%;
+    height: 100%;
+    margin: unset;
+  }
 }
 

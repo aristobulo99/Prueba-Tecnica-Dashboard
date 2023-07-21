@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { authenticatedOnlyGuard } from './guards/authenticated-only.guard';
+import { fileControlGuard } from './guards/file-control.guard';
+import { dashboardControlGuard } from './guards/dashboard-control.guard';
 
 const routes: Routes = [
   {
@@ -16,11 +19,13 @@ const routes: Routes = [
   },
   {
     path: 'fileUpload',
-    component: FileUploadComponent
+    component: FileUploadComponent,
+    canActivate: [authenticatedOnlyGuard, dashboardControlGuard]
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [authenticatedOnlyGuard, fileControlGuard]
   }
 ];
 
