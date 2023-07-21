@@ -34,7 +34,7 @@ export class AccumulatedCardComponent implements OnInit{
     let dynamicObject: {[key: string]: number} = {};
     this.maxValue = 0;
     this.nameState = '';
-    this.covid19TimeSriesDataServices.getDataCumulativeMajor().subscribe(
+    this.covid19TimeSriesDataServices.getData().subscribe(
       (result) => {
 
         result.forEach(
@@ -66,7 +66,7 @@ export class AccumulatedCardComponent implements OnInit{
     let dynamicObject: {[key: string]: number} = {};
     this.maxValue = Number.MAX_SAFE_INTEGER;
     this.nameState = '';
-    this.covid19TimeSriesDataServices.getDataCumulativeMajor().subscribe(
+    this.covid19TimeSriesDataServices.getData().subscribe(
       (result) => {
 
         result.forEach(

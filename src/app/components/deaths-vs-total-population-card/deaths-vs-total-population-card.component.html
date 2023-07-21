@@ -5,11 +5,14 @@
   </section>
 
   <br>
+  <form [formGroup]="formGroup">
+    <select class="generic-input" formControlName="stateSelection" (change)="selectionEvent()">
+      <option value="">Estado</option>
+      <option *ngFor="let state of stateList" [value]="state">{{state}}</option>
+    </select>
+  </form>
 
-  <select class="generic-input">
-    <option value="">Estado</option>
-    <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-  </select>
+  <canvas  id="MyChart" width="400" height="400" >{{ chart }}</canvas>
 
   <br>
 

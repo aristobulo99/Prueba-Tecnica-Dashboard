@@ -17,7 +17,7 @@ export class Covid19TimeSeriesDataService {
     return this.http.post(this.URL,data);
   }
 
-  public getDataCumulativeMajor(){
+  public getData(){
     return this.http.get<{[key: string]: NewDataCovid19USA}[]>(this.URL)
 
   }
