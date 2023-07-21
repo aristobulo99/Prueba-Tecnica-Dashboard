@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Covid19TimeSeriesDataService } from 'src/app/services/covid19-time-series-data.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class AccumulatedCardComponent implements OnInit{
   protected selectedDate: string = '4/26/21'
 
   constructor(
-    private covid19TimeSriesDataServices: Covid19TimeSeriesDataService
+    private covid19TimeSriesDataServices: Covid19TimeSeriesDataService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -38,6 +40,8 @@ export class AccumulatedCardComponent implements OnInit{
       (result) => {
         if(result.length == 0){
           localStorage.removeItem('fileCSV')
+          this.router.navigate(['fileUpload'])
+
         }
         result.forEach(
           objectData => {

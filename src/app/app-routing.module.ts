@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { authenticatedOnlyGuard } from './guards/authenticated-only.guard';
 import { fileControlGuard } from './guards/file-control.guard';
 import { dashboardControlGuard } from './guards/dashboard-control.guard';
+import { loginControlGuard } from './guards/login-control.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [loginControlGuard]
   },
   {
     path: 'fileUpload',
